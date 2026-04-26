@@ -1,0 +1,52 @@
+{
+  "entities": {
+    "Note": {
+      "title": "Note",
+      "description": "A user-created note",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "category": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "title", "content", "createdAt", "updatedAt"]
+    },
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "User specific data and preferences",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "settings": {
+          "type": "object",
+          "properties": {
+            "language": { "type": "string" },
+            "voiceName": { "type": "string" },
+            "playbackSpeed": { "type": "number" },
+            "pitch": { "type": "number" },
+            "cloudSync": { "type": "boolean" }
+          }
+        },
+        "categories": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["userId"]
+    }
+  },
+  "firestore": {
+    "notes/{noteId}": {
+      "schema": "Note",
+      "description": "Collection of notes"
+    },
+    "users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profiles"
+    }
+  }
+}

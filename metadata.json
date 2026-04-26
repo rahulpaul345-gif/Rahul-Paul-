@@ -1,0 +1,6 @@
+{
+  "name": "Zoya",
+  "description": "An advanced AI personal assistant named Zoya with integrated note-taking, category suggestions, and Google Calendar scheduling capabilities.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": []
+}
